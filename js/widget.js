@@ -11,3 +11,4 @@ console.log(depid);
 
 const region = urlParams.get('region')
 console.log(region);
+

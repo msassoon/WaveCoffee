@@ -3,12 +3,12 @@ console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);
 
-const orgid = urlParams.get('orgid')
-console.log(orgid);
+const vorgid = urlParams.get('orgid')
+console.log(vorgid);
 
-const depid = urlParams.get('depid')
-console.log(depid);
+const vdepid = urlParams.get('depid')
+console.log(vdepid);
 
-const region = urlParams.get('region')
-console.log(region);
+const vregion = urlParams.get('region')
+console.log(vregion);
 

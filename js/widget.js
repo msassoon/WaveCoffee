@@ -3,11 +3,11 @@ console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);
 
-const product = urlParams.get('orgid')
+const orgid = urlParams.get('orgid')
 console.log(orgid);
 
-const product = urlParams.get('depid')
+const depid = urlParams.get('depid')
 console.log(depid);
 
-const product = urlParams.get('region')
+const region = urlParams.get('region')
 console.log(region);

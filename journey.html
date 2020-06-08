@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+<!-- saved from url=(0091)//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/?#/journey/000CRb7UVYFR0042 -->
+<html class="no-js"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-block-transitions {
+        transition: 0s all !important;
+        -webkit-transition: 0s all !important;
+    }
+    </style>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Customer Journey</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet"
+          href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/libs/ng-table/ng-table.css">
+    <link rel="stylesheet"
+          href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/libs/ark-style/dist/css/ark-css.css">
+    <link rel="stylesheet"
+          href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/libs/ark-components/dist/styles/ark-components-min.css">
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <!--   <link rel="stylesheet" href="styles/main.css"> -->
+
+    <!-- endbuild -->
+    <script type="text/javascript" src="//demo.genesyslab.com/gdemo/scripts/json2,modernizr-2.0.6.min,jquery-1.7.2.min.js"></script>
+
+    <script type="text/javascript" charset="UTF-8"
+            src="./Journey Manager Concept_files/{common,util,stats}.js"></script>
+    <link href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/modules/journey-timeline/css/timeline.css"
+          rel="stylesheet" class="lazyload" charset="utf-8">
+    <script src="./Journey Manager Concept_files/jquery.min.js" class="lazyload" charset="utf-8"></script>
+    <script src="./Journey Manager Concept_files/timeline.js" class="lazyload" charset="utf-8"></script>
+</head>
+<body ng-app="journey-manager" class="ng-scope">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<link rel="stylesheet" href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/modules/login/login.css">
+<link rel="stylesheet" href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/modules/main/style.css">
+<link rel="stylesheet"
+      href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/modules/journey-dashboard/style.css">
+<link rel="stylesheet"
+      href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/modules/interaction-timeline/timeline.css">
+<link rel="stylesheet"
+      href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/libs/angular-gridster/dist/angular-gridster.min.css">
+
+
+<!-- uiView:  -->
+<div ui-view="" class="ng-scope">
+    <navigation-bar-view class="ng-scope ng-isolate-scope">
+        <nav class="navbar navbar-default ng-scope" role="navigation" ng-controller="headerNavCtrl">
+
+            <div class="container-fluid">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand ng-binding" ui-sref="root.home" href="#"><span
+                            class="fonticon " id="top-right-title"></span></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                        <li ng-class="{ active: $state.is(&#39;root.journey&#39;)}"><a ui-sref="root.journey"
+                                                                                       class="ng-binding" href="#">Existing
+                            Customer</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                       <li ng-class="{ active: $state.is(&#39;root.about&#39;)}"><a ui-sref="root.about"
+                                                                                     class="ng-binding" href="#">Samsung®
+                            Manager</a></li>
+
+                        <li ng-class="{ active: $state.is(&#39;root.search&#39;)}">
+                            <!--<li>-->
+
+                            <a data-container="body" data-toggle="popover" data-html="true" data-placement="bottom"
+                               data-arrow="right" data-title="Search for Customer Profile"
+                               data-content="&lt;div class=&quot;searchContent&quot; ng-controller=&quot;searchProfileCtrl&quot;&gt;&lt;form class=&quot;form-inline&quot; role=&quot;form&quot;&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-md-4&quot;&gt;&lt;select id=&quot;search-select-id&quot; class=&quot;form-control selectpicker select-identifier&quot;&gt;&lt;option&gt;Phone Number&lt;/option&gt;&lt;option&gt;Email&lt;/option&gt;&lt;option&gt;Customer ID&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;col-md-6 form-group&quot;&gt;&lt;label class=&quot;sr-only&quot; for=&quot;profile-id&quot;&gt;Email address&lt;/label&gt;&lt;input type=&quot;string&quot; class=&quot;form-control&quot; id=&quot;search-profile-id&quot; placeholder=&quot;Contact Identifier&quot;&gt;&lt;/div&gt;&lt;div class=&quot;col-md-2&quot;&gt;&lt;button type=&quot;button&quot; ng-click=&quot;test()&quot; class=&quot;btn btn-primary submit-profile-button&quot;&gt;&lt;span class=&quot;icon icon-search search-submit&quot;&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/form&gt;&lt;/div&gt;"
+                               ng-click="test()" data-original-title="" title="">
+                        <span title="Search">
+                            <span class="fonticon icon-search"></span>
+                        </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </navigation-bar-view>
+    <!-- uiView:  -->
+    <div ui-view="" class="ng-scope">
+        <div ng-controller="JourneyDashboardCtrl" class="ng-scope">
+
+            <ul class="nav nav-tabs">
+                <!-- ngRepeat: t in tabs track by $index -->
+                <li ng-repeat="t in tabs track by $index" ng-class="{ active: t.active }" class="ng-scope active"><a
+                        ng-click="go(&#39;root.journey&#39;, $index)" data-toggle="tab" class="ng-binding">Journey
+                    History</a>
+                </li>
+                <!-- end ngRepeat: t in tabs track by $index -->
+            </ul>
+
+            <div ng-class="gridsterClass()" gridster="gridsterOptions"
+                 class="ng-isolate-scope gridster gridster-desktop gridster-loaded" style="height: 1005px;">
+                <div ng-style="previewStyle()" class="gridster-item gridster-preview-holder"
+                     style="display: none;"></div>
+                <div ng-transclude="">
+                    <ul class="ng-scope">
+                        <!-- ngRepeat: widget in dashboard.widgets -->
+                        <li gridster-item="widget" ng-repeat="widget in dashboard.widgets"
+                            class="ng-scope gridster-item ui-draggable ui-resizable"
+                            style="margin: 0px; top: 5px; left: 5px; height: 245px; width: 1292px;">
+
+                            <div class="box ng-scope" ng-controller="CustomWidgetCtrl">
+                                <div class="box-header Widget-controls">
+                                    <div class="Widget-controls-item Widget-controls-item--grab js-controlGrab ui-draggable-handle">
+                                        <i class="icon icon-grab"></i>
+                                    </div>
+
+                                    <div class="box-header-btns pull-right Widget-controls-item Widget-controls-item--menu">
+                                        <a title="settings" ng-click="openSettings(widget)">
+                                            <i class="fonticon icon-more"></i>
+                                        </a>
+                                    </div>
+
+                                    <div ng-show="widget.filter"
+                                         class="box-filter-btns Widget-controls-item Widget-controls-item--menu pull-left">
+                                        <a title="filter" ng-click="openFilter(widget)">
+                                            <i class="fonticon icon-filter"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="WidgetWrapper-title" style="text-align:left;">
+                                        <p class="animate-show ng-binding ng-hide" ng-show="widget.name"></p>
+                                    </div>
+                                </div>
+
+                                <!--<div class="box-content" ng-bind-html="to_trusted(widget.myHtml)">-->
+
+                                <!-- ngInclude: widget.template -->
+                                <div class="box-content ng-scope" ng-include="widget.template">
+                                    <customer-timeline-view class="ng-scope">
+                                        <div ng-controller="CustomerTimelineCtrl" class="ng-scope">
+                                            <div id="my-timeline" timeline-js="" class="storyjs-embed full-embed"
+                                                 classname="storyjs-embed full-embed"
+                                                 style="width: 100%; height: 179px;">
+                                                <div id="storyjs" class="vco-timeline vco-storyjs vco-notouch"
+                                                     style="position: relative;">
+                                                    <div class="vco-container vco-main">
+                                                        <div class="vco-feature">
+                                                            <div class="vco-slider" style="overflow-y: hidden;">
+                                                                <div class="slider-container-mask"
+                                                                     style="width: 1270px;">
+                                                                    <div class="slider-container"></div>
+                                                                </div>
+                                                                <div class="nav-next" style="left: 1170px;">
+                                                                    <div class="nav-container" style="top: -52px;">
+                                                                        <div class="icon">&nbsp;</div>
+                                                                        <div class="date"></div>
+                                                                        <div class="title"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="nav-previous" style="overflow: hidden;">
+                                                                    <div class="nav-container" style="top: -52px;">
+                                                                        <div class="icon">&nbsp;</div>
+                                                                        <div class="date">5:51:37 AM</div>
+                                                                        <div class="title">Samsung® Book Flight</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="vco-navigation">
+                                                            <div class="timenav" style="left: -6405.97191489583px;">
+                                                                <div class="content">
+
+<!-- SL -->
+
+                                                                    <div class="marker" id="marker_UhGXq"
+                                                                         style="left: 6766px;">
+                                                                        <div class="flag" style="top: 100px;">
+                                                                            <div class="flag-content">
+                                                                                <div id="time-old-state" class="up-title, status completed">Samsung®
+                                                                                    Service Web:<br> A day ago
+                                                                                </div>
+                                                                                <div class="duration"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="dot"></div>
+                                                                        <div class="line">
+                                                                            <div class="event-line"></div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="marker active" id="marker_lqsFcnR"
+                                                                         style="left: 7041px;">
+                                                                        <div class="flag" style="top: 50px;">
+                                                                            <div class="flag-content">
+                                                                                <div id="time-state" class="up-title, status active">Citi® Home
+                                                                                    Security: Current‎
+                                                                                </div>
+                                                                                <div class="duration"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="dot"></div>
+                                                                        <div class="line">
+                                                                            <div class="event-line"></div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="time">
+                                                                    <div class="time-interval-minor">
+                                                                        <div class="minor"
+                                                                             style="left: -1251.55555555572px; width: 17258.6666666667px;"></div>
+                                                                    </div>
+                                                                    <div class="time-interval">
+                                                                        <div id="date-0" style="text-indent: -19.5px; opacity: 100; left: 6444.44444444428px;">
+                                                                            Sept. 28
+                                                                        </div>
+                                                                        <div id="date-1" style="text-indent: -19.5px; opacity: 100; left: 6711.11111111095px;">
+                                                                            Sept. 29
+                                                                        </div>
+                                                                        <div id="date-2" style="text-indent: -19.5px; opacity: 100; left: 6977.77777777762px;">
+                                                                            Sept. 30
+                                                                        </div>
+                                                                        <div id="date-3" style="text-indent: -11.5px; opacity: 100; left: 7244.44444444428px;">
+                                                                            Oct. 1
+                                                                        </div>
+                                                                        <div id="date-4" style="text-indent: -15px; opacity: 100; left: 7511.11111111095px;">
+                                                                            Oct. 2
+                                                                        </div>
+                                                                        <div style="text-indent: -11px; opacity: 100; left: 7244.44444444428px;"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="timenav-background">
+                                                                <div class="timenav-line" style="left: 637px;"></div>
+                                                                <div class="timenav-indicator"
+                                                                     style="left: 627px;"></div>
+                                                                <div class="timenav-interval-background">
+                                                                    <div class="top-highlight"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="vco-toolbar">
+                                                                <div class="zoom-in" rel="timeline-tooltip"
+                                                                     data-original-title="Expand Timeline">
+                                                                    <div class="icon"></div>
+                                                                </div>
+                                                                <div class="zoom-out" rel="timeline-tooltip"
+                                                                     data-original-title="Contract Timeline">
+                                                                    <div class="icon"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </customer-timeline-view>
+                                </div>
+
+                            </div>
+
+                            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                                 style="z-index: 90; display: block;"></div>
+                        </li>
+                        <!-- end ngRepeat: widget in dashboard.widgets -->
+                        <li gridster-item="widget" ng-repeat="widget in dashboard.widgets"
+                            class="ng-scope gridster-item ui-draggable ui-resizable ui-resizable-autohide"
+                            style="margin: 0px; top: 255px; left: 5px; height: 745px; width: 535.416666666667px;">
+
+                            <div class="box ng-scope" ng-controller="CustomWidgetCtrl">
+                                <div class="box-header Widget-controls">
+                                    <div class="Widget-controls-item Widget-controls-item--grab js-controlGrab ui-draggable-handle">
+                                        <i class="icon icon-grab"></i>
+                                    </div>
+
+                                    <div class="box-header-btns pull-right Widget-controls-item Widget-controls-item--menu">
+                                        <a title="settings" ng-click="openSettings(widget)">
+                                            <i class="fonticon icon-more"></i>
+                                        </a>
+                                    </div>
+
+                                    <div ng-show="widget.filter"
+                                         class="box-filter-btns Widget-controls-item Widget-controls-item--menu pull-left ng-hide">
+                                        <a title="filter" ng-click="openFilter(widget)">
+                                            <i class="fonticon icon-filter"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="WidgetWrapper-title" style="text-align:left;">
+                                        <p class="animate-show ng-binding ng-hide" ng-show="widget.name"></p>
+                                    </div>
+                                </div>
+
+                                <!--<div class="box-content" ng-bind-html="to_trusted(widget.myHtml)">-->
+
+                                <!-- ngInclude: widget.template -->
+                                <div class="box-content ng-scope" ng-include="widget.template">
+                                    <customer-detail-view class="ng-scope">
+                                        <div class="container widget ng-scope" ng-controller="CustomerDetailCtrl">
+                                            <div class="row">
+                                                <div class="span8 col-xs-12 col-md-12">
+                                                    <nav class="navbar navbar-switch-default detail" role="navigation">
+                                                        <ul class="nav navbar-nav" id="myTab">
+                                                            <li class="active ng-hide" ng-hide="!showProfile"><a
+                                                                    href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/?#profile"
+                                                                    style="font-size:12px" data-toggle="tab">Customer
+                                                                Profile</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/?#effort"
+                                                                   style="font-size:12px" data-toggle="tab">KPIs</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/?#sentiment"
+                                                                   style="font-size:12px"
+                                                                   data-toggle="tab">Sentiment</a>
+                                                            </li>
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-content">
+                                                <div class="tab-pane active ng-hide" ng-hide="!showProfile"
+                                                     id="profile">
+                                                    <div class="container widget">
+                                                        <div class="row title"></div>
+                                                        <!-- ngRepeat: ext in extensions track by $index -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="tab-pane active"
+                                                     ng-class="showProfile ? &#39;&#39; : &#39;active&#39;" id="effort">
+                                                    <div class="container widget">
+
+                                                        <div class="row title">
+
+                                                            <div class="col-md-4 col-md-offset-1 kpis">
+                                                                <div class="row">
+                                                                    <h2>Nb Journeys</h2>
+
+                                                                    <h1 class="ng-binding">15
+                                                                        <span ng-class="kpis.nbJourneysStyle"
+                                                                              class="fonticon text"></span>
+                                                                    </h1>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4 col-md-offset-1 kpis">
+                                                                <h2>Avg Resolution Time</h2>
+
+                                                                <h1 class="ng-binding">About a day
+                                                                    <span ng-class="kpis.avgResolutionTimeStyle"
+                                                                          class="fonticon text icon-alert-circle has-green"></span>
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row title">
+
+                                                            <div class="col-md-4 col-md-offset-1 kpis">
+                                                                <div class="row">
+                                                                    <h2>Active Journeys</h2>
+
+                                                                    <h1 class="ng-binding">1
+                                                                        <span ng-class="kpis.nbActiveJourneysStyle"
+                                                                              class="fonticon text icon-alert-circle has-error"></span>
+                                                                    </h1>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4 col-md-offset-1 kpis">
+                                                                <h2>Completed Journeys</h2>
+
+                                                                <h1 class="ng-binding">14
+                                                                    <span ng-class="kpis.nbCompletedJourneysStyle"
+                                                                          class="fonticon text icon-alert-triangle has-warning"></span>
+                                                                </h1>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row title">
+
+                                                            <div class="col-md-4 col-md-offset-1 kpis">
+                                                                <h2>Min Resolution Time</h2>
+
+                                                                <h1 class="ng-binding">49.367 seconds
+                                                                    <span ng-class="kpis.minResolutionTimeStyle"
+                                                                          class="fonticon text icon-alert-circle has-green"></span>
+                                                                </h1>
+                                                            </div>
+
+                                                            <div class="col-md-4 col-md-offset-1 kpis">
+                                                                <h2>Max Resolution Time</h2>
+
+                                                                <h1 class="ng-binding">About 5 days
+                                                                    <span ng-class="kpis.maxResolutionTimeStyle"
+                                                                          class="fonticon text icon-alert-circle has-green"></span>
+                                                                </h1>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="tab-pane" id="sentiment">
+                                                    <p>Messages</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </customer-detail-view>
+                                </div>
+
+                            </div>
+
+                            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                                 style="z-index: 90; display: none;"></div>
+                        </li>
+                        <!-- end ngRepeat: widget in dashboard.widgets -->
+                        <li gridster-item="widget" ng-repeat="widget in dashboard.widgets"
+                            class="ng-scope gridster-item ui-draggable ui-resizable"
+                            style="margin: 0px; top: 255px; left: 545.416666666667px; height: 745px; width: 751.583333333333px;">
+
+                            <div class="box ng-scope" ng-controller="CustomWidgetCtrl">
+                                <div class="box-header Widget-controls">
+                                    <div class="Widget-controls-item Widget-controls-item--grab js-controlGrab ui-draggable-handle">
+                                        <i class="icon icon-grab"></i>
+                                    </div>
+
+                                    <div class="box-header-btns pull-right Widget-controls-item Widget-controls-item--menu">
+                                        <a title="settings" ng-click="openSettings(widget)">
+                                            <i class="fonticon icon-more"></i>
+                                        </a>
+                                    </div>
+
+                                    <div ng-show="widget.filter"
+                                         class="box-filter-btns Widget-controls-item Widget-controls-item--menu pull-left ng-hide">
+                                        <a title="filter" ng-click="openFilter(widget)">
+                                            <i class="fonticon icon-filter"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="WidgetWrapper-title" style="text-align:left;"> <!-- SL
+                                        <p class="animate-show ng-binding" ng-show="widget.name">Authenticated: Marshall
+                                            S. Pruitt</p> -->
+                                    </div>
+                                </div>
+
+                                <!--<div class="box-content" ng-bind-html="to_trusted(widget.myHtml)">-->
+
+                                <!-- ngInclude: widget.template -->
+                                <div class="box-content ng-scope" ng-include="widget.template">
+                                    <interaction-timeline-view class="ng-scope">
+                                        <div ng-controller="InteractionTimelineCtrl" class="ng-scope">
+                                            <h2 id="journey-title" class="timeline-title">Samsung Timeline</h2>
+                                            <ul class="timeline">
+                                                <!-- ngRepeat: moment in moments track by $index -->
+                                                <!-- ngInclude: getIncludeFile() -->
+                                                <!-- ngInclude: getIncludeFile() -->
+                                                <li ng-repeat="moment in moments track by $index"
+                                                    ng-controller="momentCtrl" ng-include="getIncludeFile()"
+                                                    ng-class="($index % 2 == 0) ? &#39;timeline&#39; : &#39;timeline-inverted&#39;"
+                                                    class="ng-scope timeline-inverted">
+                                                    <div id="vert-0" ng-class="moment.color"
+                                                         class="ng-scope timeline-badge completed"><i
+                                                            ng-class="moment.icon" class="fonticon "></i>
+                                                    </div>
+                                                    <div class="timeline-panel completed">
+                                                        <div class="timeline-heading">
+                                                            <h4 class="timeline-title ng-binding">
+                                                                <span id="vert-title-0">Samsung® Service
+                                                                Repair Request
+                                                                </span>
+                                                            </h4>
+
+                                                            <p  ng-show="moment.completed" class="">
+                                                                <small class="text-muted ng-binding">
+                                                                    <span id="vert-details-0">
+                                                                    Duration - 4 minutes<br>Comment one
+                                                                    </span>
+                                                                </small>
+                                                            </p>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-xpanel ng-scope">
+                                                        <p >
+                                                            <small ng-show="moment.startedDate"
+                                                                   class="text-muted ng-binding">
+                                                                <span id="vert-date-0">
+                                                                Started on 9/30/2014 <br> 6:10 am
+                                                                </span>
+                                                            </small><br>
+                                                        </p>
+
+                                                    </div>
+                                                </li>
+                                                <!-- end ngRepeat: moment in moments track by $index -->
+                                                <!-- ngInclude: getIncludeFile() -->
+                                                <li  id="vert-full-1" style="display: none" ng-repeat="moment in moments track by $index"
+                                                    ng-controller="momentCtrl" ng-include="getIncludeFile()"
+                                                    ng-class="($index % 2 == 0) ? &#39;timeline&#39; : &#39;timeline-inverted&#39;"
+                                                    class="ng-scope timeline">
+                                                    <div id="vert-1" ng-class="moment.color"
+                                                         class="ng-scope timeline-badge completed"><i
+                                                            ng-class="moment.icon" class="fonticon"></i>
+                                                    </div>
+                                                    <div class="timeline-panel completed">
+                                                        <div class="timeline-heading">
+                                                            <h4 class="timeline-title ng-binding">
+                                                                <span   id="vert-title-1">
+                                                                Samsung® Service
+                                                                Repair Delay
+                                                            </span></h4>
+
+                                                            <p ng-show="moment.completed" class="">
+                                                                <small class="text-muted ng-binding">
+                                                                <span id="vert-details-1">
+                                                                      Duration- 1 minute <br> Agent Unavailable
+                                                                </span>
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-xpanel ng-scope">
+                                                        <p>
+                                                            <small ng-show="moment.startedDate"
+                                                                   class="text-muted ng-binding"><i
+                                                                    class="glyphicon glyphicon-time"></i>
+                                                                <span id="vert-date-1">
+                                                                Started on 9/30/2014<br> 6:14 AM
+                                                                </span>
+                                                            </small>
+                                                        </p>
+
+                                                    </div>
+                                                </li>
+                                                <!-- end ngRepeat: moment in moments track by $index -->
+                                                <!-- ngInclude: getIncludeFile() -->
+                                                <li id="vert-full-2" style="display: none" ng-repeat="moment in moments track by $index"
+                                                    ng-controller="momentCtrl" ng-include="getIncludeFile()"
+                                                    ng-class="($index % 2 == 0) ? &#39;timeline&#39; : &#39;timeline-inverted&#39;"
+                                                    class="ng-scope timeline-inverted">
+                                                    <div id="vert-2" ng-class="moment.color"
+                                                         class="ng-scope timeline-badge completed"><i
+                                                            ng-class="moment.icon" class="fonticon"></i>
+                                                    </div>
+                                                    <div class="timeline-panel completed">
+                                                        <div class="timeline-heading">
+                                                            <h4 class="timeline-title ng-binding">
+                                                                <span  id="vert-title-2">
+                                                                Samsung® Exchange
+                                                                Request
+                                                                </span>
+                                                            </h4>
+
+                                                            <p ng-hide="moment.completed" class="">
+                                                                <small class="text-muted ng-binding">
+                                                                    <span id="vert-details-2">
+                                                                    Duration- 5 minutes<br>Comment
+                                                                    </span>
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-xpanel ng-scope">
+                                                        <p>
+                                                            <small ng-show="moment.startedDate"
+                                                                   class="text-muted ng-binding">
+                                                                <span  id="vert-date-2">
+                                                                Started on 10/1/2014<br>at 4:05pm
+                                                                </span>
+                                                            </small>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <!-- end ngRepeat: moment in moments track by $index -->
+                                                <!-- ngInclude: getIncludeFile() -->
+                                                <li  id="vert-full-3" style="display: none" ng-repeat="moment in moments track by $index"
+                                                    ng-controller="momentCtrl" ng-include="getIncludeFile()"
+                                                    ng-class="($index % 2 == 0) ? &#39;timeline&#39; : &#39;timeline-inverted&#39;"
+                                                    class="ng-scope timeline">
+                                                    <div id="vert-3" ng-class="moment.color"
+                                                         class="ng-scope timeline-badge completed"><i
+                                                            ng-class="moment.icon" class="fonticon"></i>
+                                                    </div>
+                                                    <div class="timeline-panel completed">
+                                                        <div class="timeline-heading">
+                                                            <h4 class="timeline-title ng-binding">
+                                                                <span  id="vert-title-3">
+                                                                Samsung® Day of
+                                                                Repair
+                                                                </span>
+                                                            </h4>
+
+                                                            <p ng-show="moment.completed" class="">
+                                                                <small class="text-muted ng-binding">
+                                                                    <span  id="vert-details-3">
+                                                                    Duration- 22 minutes<br>Comment
+                                                                    </span>
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-xpanel ng-scope">
+                                                        <p>
+                                                            <small ng-show="moment.startedDate"
+                                                                   class="text-muted ng-binding">
+                                                                <span  id="vert-date-3">
+                                                                Started on 10/1/2014<br>at 7:34 pm
+                                                                </span>
+                                                            </small>
+                                                        </p>
+
+                                                    </div>
+                                                </li>
+                                                <!-- end ngRepeat: moment in moments track by $index -->
+                                                <!-- ngInclude: getIncludeFile() -->
+                                                <li  id="vert-full-4" style="display: none" ng-repeat="moment in moments track by $index"
+                                                    ng-controller="momentCtrl" ng-include="getIncludeFile()"
+                                                    ng-class="($index % 2 == 0) ? &#39;timeline&#39; : &#39;timeline-inverted&#39;"
+                                                    class="ng-scope timeline-inverted">
+                                                    <div id="vert-4" ng-class="moment.color" class="ng-scope timeline-badge active">
+                                                        <i ng-class="moment.icon" class="fonticon"></i>
+                                                    </div>
+                                                    <div class="timeline-panel active">
+                                                        <div class="timeline-heading">
+                                                            <h4 class="timeline-title ng-binding">
+                                                                <span  id="vert-title-4">
+                                                                    Samsung® Repair
+                                                                Completed
+                                                                </span>
+                                                            </h4>
+
+                                                            <p ng-show="moment.completed" class="">
+                                                                <small class="text-muted ng-binding"><i
+                                                                        class="glyphicon glyphicon-time"></i>
+                                                                    <span  id="vert-details-4">
+                                                                    Current
+                                                                    </span>
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-xpanel ng-scope">
+                                                        <p>
+                                                            <small ng-show="moment.startedDate"
+                                                                   class="text-muted ng-binding"><i
+                                                                    class="glyphicon glyphicon-time"></i>
+                                                                <span  id="vert-date-4">
+                                                                Started on 10/1/2014<br>at 8:02 pm
+                                                                </span>
+                                                            </small>
+                                                        </p>
+
+                                                    </div>
+                                                </li>
+                                                <!-- end ngRepeat: moment in moments track by $index -->
+                                            </ul>
+                                        </div>
+                                    </interaction-timeline-view>
+                                </div>
+
+                            </div>
+
+                            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                                 style="z-index: 90; display: block;"></div>
+                        </li>
+                        <!-- end ngRepeat: widget in dashboard.widgets -->
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<script src="./Journey Manager Concept_files/js"></script>
+<script src="./Journey Manager Concept_files/main.js" type="text/javascript"></script>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="./Journey Manager Concept_files/es5-shim.js"></script>
+<script src="./Journey Manager Concept_files/jquery.js"></script>
+<script src="./Journey Manager Concept_files/angular.js"></script>
+<script src="./Journey Manager Concept_files/json3.min.js"></script>
+<script src="./Journey Manager Concept_files/angular-resource.js"></script>
+<script src="./Journey Manager Concept_files/angular-cookies.js"></script>
+<script src="./Journey Manager Concept_files/angular-sanitize.js"></script>
+<script src="./Journey Manager Concept_files/angular-route.js"></script>
+<script src="./Journey Manager Concept_files/angular-animate.js"></script>
+<script src="./Journey Manager Concept_files/angular-ui-router.js"></script>
+<script src="./Journey Manager Concept_files/underscore.js"></script>
+<script src="./Journey Manager Concept_files/lodash.compat.js"></script>
+<script src="./Journey Manager Concept_files/angular-google-maps.js"></script>
+<script src="./Journey Manager Concept_files/ng-table.js"></script>
+<script src="./Journey Manager Concept_files/ark-css.js"></script>
+<script src="./Journey Manager Concept_files/jquery-ui.js"></script>
+<script src="./Journey Manager Concept_files/angular-gridster.js"></script>
+<script src="./Journey Manager Concept_files/ui-bootstrap-tpls.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="./Journey Manager Concept_files/storyjs-embed.js"></script>
+<script src="./Journey Manager Concept_files/d3.js"></script>
+<script src="./Journey Manager Concept_files/ark-components-min.js"></script>
+
+
+<script src="./Journey Manager Concept_files/config.js"></script>
+<script src="./Journey Manager Concept_files/app.js"></script>
+
+<!-- Start: Journey Manager Modules -->
+
+<script src="./Journey Manager Concept_files/example-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/example-directive.js"></script>
+
+<script src="./Journey Manager Concept_files/home-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/home-directive.js"></script>
+
+<script src="./Journey Manager Concept_files/moments-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/moments-directive.js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl.js"></script>
+<script src="./Journey Manager Concept_files/directive.js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl(1).js"></script>
+<script src="./Journey Manager Concept_files/directive(1).js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl(2).js"></script>
+<script src="./Journey Manager Concept_files/directive(2).js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl(3).js"></script>
+<script src="./Journey Manager Concept_files/directive(3).js"></script>
+
+
+<script src="./Journey Manager Concept_files/content-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/content-directive.js"></script>
+<link rel="stylesheet" href="//core.demo.genesys.com/cjourney/journey-v1/journey-app/app/modules/content/style.css">
+
+<script src="./Journey Manager Concept_files/beacon-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/beacon-directive.js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl(4).js"></script>
+<script src="./Journey Manager Concept_files/directive(4).js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl(5).js"></script>
+<script src="./Journey Manager Concept_files/directive(5).js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl(6).js"></script>
+<script src="./Journey Manager Concept_files/directive(6).js"></script>
+
+
+<script src="./Journey Manager Concept_files/directive(7).js"></script>
+<script src="./Journey Manager Concept_files/ctrl(7).js"></script>
+<script src="./Journey Manager Concept_files/directive(8).js"></script>
+
+<script src="./Journey Manager Concept_files/ctrl(8).js"></script>
+<script src="./Journey Manager Concept_files/directive(9).js"></script>
+
+<script src="./Journey Manager Concept_files/directive(10).js"></script>
+<script src="./Journey Manager Concept_files/ctrl(9).js"></script>
+<script src="./Journey Manager Concept_files/custom-widget-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/widget-settings-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/widget-filter-ctrl.js"></script>
+
+<script src="./Journey Manager Concept_files/directive(11).js"></script>
+<script src="./Journey Manager Concept_files/ctrl(10).js"></script>
+
+<!-- End: Journey Manager Modules -->
+
+<script src="./Journey Manager Concept_files/main-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/css-demo-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/css-demo-view.js"></script>
+
+<script src="./Journey Manager Concept_files/login-view.js"></script>
+<script src="./Journey Manager Concept_files/login-ctrl.js"></script>
+
+<script src="./Journey Manager Concept_files/navigation-bar-ctrl.js"></script>
+<script src="./Journey Manager Concept_files/navigation-bar-view.js"></script>
+
+<script src="./Journey Manager Concept_files/login-service.js"></script>
+<script src="./Journey Manager Concept_files/navigation-bar-service.js"></script>
+
+<script src="./Journey Manager Concept_files/language-service.js"></script>
+<!-- endbuild -->
+
+
+<script>
+
+$( document ).ready(function() {
+	// read the journey data
+	//var temp = location.href.substr(location.href.indexOf("url=")+4);
+	//temp = decodeURIComponent(temp);
+	var temp = "journey.cfg";
+    $.get(temp, function (data) {getData(data);})
+        .fail(function(err){alert("Error");});
+});
+
+function getData(dataStr) {
+
+    var data = JSON.parse(dataStr);
+
+    $("#top-right-title").text(data.company_title);
+    $("#time-old-state").text("").html($("#time-old-state").html() + "Service request" + "<br> A day ago");
+    $("#time-state").text("").html($("#time-state").html() + data.state_title + "<br> Current");
+    $("#journey-title").text(data.state_title);
+
+    var today = new Date();
+    var today1 = new Date();
+
+    today1.setMinutes(today.getMinutes() - 300);
+    today.setDate(today.getDate() - 2);
+
+	for (i = 0; i < 5; i++) {
+		var dat = new Date();
+		dat.setDate(today.getDate() + i);
+        $("#date-"+i).text(getShortDate(dat));
+	}
+	
+	var lastIdx = 0;
+    for (i = 0; i < 5; i++) {
+    
+        if (data.states[i].vert_title == undefined || data.states[i].vert_title.length == 0) { // stop showing on first empty title
+            break;
+		}
+            
+        $("#vert-full-"+i).show();        
+        $("#vert-title-"+i).text(data.states[i].vert_title);
+        $("#vert-details-"+i).text("").html("Duration "+(23%(i*2+8))+" min <br>" + data.states[i].vert_details);
+        $("#vert-"+i).addClass("icon-" + data.states[i].vert_media);
+
+        $("#vert-date-"+i).html("Started on " + today1.toLocaleDateString() + "<br> " +
+                today1.toLocaleTimeString());
+        today1.setMinutes(today1.getMinutes() + (400%(i*6+95)));
+		lastIdx = i;
+    }
+
+		// adjust last State time to Now
+	today1 = new Date();
+	$("#vert-date-"+(i-1)).html("Started on " + today1.toLocaleDateString() + "<br> " +
+			today1.toLocaleTimeString());
+
+}
+
+function getShortDate(dt){
+    var arr = dt.toDateString().split(" ");
+    return arr[1]+". "+arr[2];
+}
+</script>
+
+
+</body>
+</html>

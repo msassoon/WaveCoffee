@@ -12,7 +12,7 @@ console.log(vdepid);
 const vregion = urlParams.get('region')
 console.log(vregion);
 
-if vregion == 'euw1'
+if (vregion == 'euw1')
 {const vurl = 'ie';
  console.log(vurl);}
 else if (vregion == 'use1' || vregion == 'use2' || vregion == 'usw1' || vregion == 'usw2')

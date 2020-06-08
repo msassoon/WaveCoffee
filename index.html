@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html xmlns="//www.w3.org/1999/html" xmlns="//www.w3.org/1999/html">
+<head>
+    <title>Genesys Web Demo</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-control" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/> 
+	<link rel="shortcut icon" href="favicon.ico"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="//demo.genesyslab.com/gdemo_mobile/web/v3/css/styles.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- jQuery script  -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <!-- for GKC pre-tyoing search-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" type="text/javascript" ></script>
+    <!-- chat - markdown parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js" type="text/javascript"></script>
+
+    <!-- fcm -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/fcm/fcm.js" type="text/javascript"></script>
+
+	<!-- widget localization -->
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/cxw/cxw_i18n.js" type="text/javascript"></script>
+
+    <!--localization-script-start-->
+    <script src="https://demo.genesyslab.com/gdemo_mobile/web/wizard/_lan/str_English.js" type="text/javascript"></script>
+    <!--localization-script-end-->
+
+    <!-- Demo scripts-->
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v3/js/tools.js" type="text/javascript"  ></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v3/js/config.js" type="text/javascript"  ></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v3/js/acw.js" type="text/javascript"  ></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v3/js/demo.js" type="text/javascript"  ></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v3/js/app.js" type="text/javascript"  ></script>
+    <!-- script src="jsx/pe/platform.js" type="text/javascript" ></script -->
+
+    <!-- Custom code -->
+    <script src="js/custom.js" type="text/javascript"  ></script>
+
+</head>
+
+<body>
+<div id="gxpage" class="wiz-page">
+    <iframe class="wiz-custom-page" src="" style='display:none'></iframe>
+</div>
+
+</body>
+</html>
+
+<!-- ***************  For Wizard Generator Backward compatibility ***************** -->
+
+<!--body-definition-start-->  <!--
+<body ng-controller="demoController" ng-app="app" data-name="WaveCoffeeGC" data-template="generic" data-gkc-db="1002">
+--> <!--body-definition-end-->
+
+<!--first-page-definition-start-->
+<!-- *************** Google Page *************** -->
+<script type="text/ng-template" id="GoogleSearch.html">
+<div id="GoogleSearch" class="wiz-page" title="Google">
+    <input GoogleSearchInput data-active data-text data-role="none" data-key="GoogleSearch"/>
+    <a GoogleSearch_btn1 data-active data-transition="none" href="#GoogleSearchResult"></a>
+    <a CloseJourneys data-active data-contact data-menu="system_Close_Journeys"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+<!--first-page-definition-end-->
+
+<!--pages-definition-start-->
+<!-- *************** Google Search Results Page *************** -->
+<script type="text/ng-template" id="GoogleSearchResult.html">
+<div id="GoogleSearchResult" class="wiz-page" title="Google Search Results">
+    <a GoogleResultsLink1 data-active data-transition="none" href="#home"></a>
+    <a GoogleResultsLink2 data-active data-transition="none" href="#home"></a>
+</div>
+</script>
+
+<!-- *************** Home Page *************** -->
+<script type="text/ng-template" id="home.html">
+<div id="home" class="wiz-page" title="Home" data-widget>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a store_btn1 data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+</div>
+</script>
+
+<!-- *************** Contact Us Page *************** -->
+<script type="text/ng-template" id="ContactUs.html">
+<div id="ContactUs" class="wiz-page" title="Contact Us" data-widget>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a contactUs_call_back data-active data-contact data-menu="contactUs_callback"></a>
+    <a contactUs_chat data-active data-contact data-menu="contactUs_chat"></a>
+    <a contactUs_video_chat data-active data-contact data-menu="contactUs_video_chat"></a>
+    <a contactUs_social data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contactUs_call_me_now data-active data-contact data-menu="contactUs_call_me_now"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** Store Page *************** -->
+<script type="text/ng-template" id="Store.html">
+<div id="Store" class="wiz-page" title="Store" data-widget>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a product01 data-active data-transition="none" href="#product01"></a>
+    <a product02 data-active data-transition="none" href="#product02"></a>
+    <a product03 data-active data-transition="none" href="#product03"></a>
+    <a product04 data-active data-transition="none" href="#product04"></a>
+    <a product05 data-active data-transition="none" href="#product05"></a>
+    <a product06 data-active data-transition="none" href="#product06"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** X-10 Page *************** -->
+<script type="text/ng-template" id="product01.html">
+<div id="product01" class="wiz-page" title="X-10" data-widget>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** G-9 Page *************** -->
+<script type="text/ng-template" id="product02.html">
+<div id="product02" class="wiz-page" title="G-9" data-widget>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** E-9 Page *************** -->
+<script type="text/ng-template" id="product03.html">
+<div id="product03" class="wiz-page" title="E-9" data-widget>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** L-9 White Page *************** -->
+<script type="text/ng-template" id="product04.html">
+<div id="product04" class="wiz-page" title="L-9 White" data-widget>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a add_to_cart_P4 data-active data-transition="none" href="#Cart"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+</div>
+</script>
+
+<!-- *************** B-8 Page *************** -->
+<script type="text/ng-template" id="product05.html">
+<div id="product05" class="wiz-page" title="B-8" data-widget>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** Z-8 Pure Balck Page *************** -->
+<script type="text/ng-template" id="product06.html">
+<div id="product06" class="wiz-page" title="Z-8 Pure Balck" data-widget>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** Cart. Page *************** -->
+<script type="text/ng-template" id="Cart_Empty.html">
+<div id="Cart_Empty" class="wiz-page" title="Cart." data-widget>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** Cart.. Page *************** -->
+<script type="text/ng-template" id="Cart.html">
+<div id="Cart" class="wiz-page" title="Cart.." data-widget>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a home data-active data-transition="none" href="#home"></a>
+    <a store data-active data-transition="none" href="#Store"></a>
+    <a check-out2 data-active data-transition="none" href="#checkout"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a storeCoffee data-active data-transition="none" href="#Store"></a>
+    <input Note data-active data-text data-role="none" data-key="description"/>
+    <a TEMP_submitCartiWD data-active data-contact data-menu="submit-cart"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** Checkout Page *************** -->
+<script type="text/ng-template" id="checkout.html">
+<div id="checkout" class="wiz-page" title="Checkout">
+    <a home data-active data-transition="none" href="#home"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a cart data-active data-transition="none" href="#Cart"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a TEMP_moveToThankYou data-active data-transition="none" href="#thankYou"></a>
+    <input customerName data-active data-text data-role="none" data-key="_$_c_first_name _$_c_last_name"/>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <input customerStreet data-active data-text data-role="none" data-key="_$_c_address"/>
+    <input customerCity data-active data-text data-role="none" data-key="_$_c_city  _$_c_zip"/>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+</div>
+</script>
+
+<!-- *************** Thank You Page *************** -->
+<script type="text/ng-template" id="thankYou.html">
+<div id="thankYou" class="wiz-page" title="Thank You">
+    <a home data-active data-transition="none" href="#home"></a>
+    <a contact_us_page1 data-active data-transition="none" href="#ContactUs"></a>
+    <a contact_us_page2 data-active data-transition="none" href="#ContactUs"></a>
+    <a KnowledgeNudge data-active data-contact data-menu="send_KnowledgeNudge"></a>
+    <a twitterBtn data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+    <a SMtwitter data-active data-transition="none" href="https://twitter.com/wavecx"></a>
+</div>
+</script>
+
+<!-- *************** L-9 Silver Page *************** -->
+<script type="text/ng-template" id="product04b.html">
+<div id="product04b" class="wiz-page" title="L-9 Silver">
+    <a home data-active data-transition="none" href="#home"></a>
+</div>
+</script>
+<!--pages-definition-end-->

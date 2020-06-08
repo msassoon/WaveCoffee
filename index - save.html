@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html xmlns="//www.w3.org/1999/html" xmlns="//www.w3.org/1999/html">
+<head>
+    <title>Genesys Web Demo</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-control" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/> 
+	<link rel="shortcut icon" href="favicon.ico"/>
+
+    <!-- ARK -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery scripts  -->
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/libs/jquery.min.js" type="text/javascript" ></script>
+
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/libs/bootstrap3-typeahead.min.js" type="text/javascript" ></script>
+
+    <!-- ARK -->
+    <link href="//demo.genesyslab.com/gdemo_mobile/web/v2/ark/css/ark-css.min.css" rel="stylesheet">
+    <link href="//demo.genesyslab.com/gdemo_mobile/web/v2/ark/css/ark-components.min.css" rel="stylesheet">
+
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/libs/angular.min.js" type="text/javascript"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/libs/angular-animate.min.js" type="text/javascript"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/libs/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/libs/angular-route.min.js" type="text/javascript"></script>
+
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/ark/js/ark-css.min.js" type="text/javascript"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/ark/js/ark-components.min.js" type="text/javascript"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/ark/js/ark-ui-bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- markdown parsing -->
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/libs/showdown.min.js" type="text/javascript"></script>
+
+    <!-- fcm -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/fcm/fcm.js" type="text/javascript"></script>
+
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/js/genweb.js" type="text/javascript"></script>
+
+    <!--localization-script-start-->
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/wizard/_lan/str_English.js" type="text/javascript"></script>
+    <!--localization-script-end-->
+
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/js/app.js" type="text/javascript" ></script>
+
+    <!-- CXW -->
+    <link rel="stylesheet" href="//demo.genesyslab.com/gdemo_mobile/web/v2/cxw/widgets.min.css" />    
+	<link rel="stylesheet" href="//demo.genesyslab.com/gdemo_mobile/web/v2/cxw/cxw.css" />
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/cxw/cxw_i18n.js" type="text/javascript"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/cxw/cxw.js" type="text/javascript"></script>
+    <!-- ------- -->
+
+    <!-- moment lib -->
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/libs/moment/moment-with-locales.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="//demo.genesyslab.com/gdemo_mobile/web/v2/css/common.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/custom.css" />
+
+	<!-- Web RTC -->
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/libs/webrtc/grtc.js" type="text/javascript"></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/libs/webrtc/webwiz-grtc.js" type="text/javascript"></script>	
+	<!-- ------- -->
+
+    <!-- script src="//demo.genesyslab.com/gdemo_mobile/web/v2/js/gkc-web.js" type="text/javascript"></script -->
+
+    <!-- customization scripts -->
+    <script src="js/custom.js" type="text/javascript" ></script>
+
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/js/common.js" type="text/javascript" ></script>
+    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/js/acw.js" type="text/javascript" ></script>
+
+
+
+</head>
+
+<!--body-definition-start-->
+<body ng-controller="demoController" ng-app="app" data-name="ARK-WIZ" data-gkc-db="1001" data-template="generic">
+<!--body-definition-end-->
+<!-- ******************* CUSTOM PAGES START *****************
+*************************************************************** -->
+<!--p> <a href="#one">Home</a>
+</p-->
+
+<ng-view></ng-view>
+
+<!-- *************** Splash Page *************** -->
+<!--first-page-definition-start-->
+<!-- *************** Main Page *************** -->
+<script type="text/ng-template" id="one.html">
+    <div id="one" class="wiz-page">
+        <input search data-active data-text data-role="none" data-gkc/>
+        <a two-contact data-active data-contact data-subject="Wiz ARK Subject"></a>  <!- -data-menu="menu-with-custom-data"- ->
+        <a data-active to-two href="#two"></a>  <!- -data-menu="menu-with-custom-data"- ->
+    </div>
+</script>
+<!--first-page-definition-end-->
+
+<!--pages-definition-start-->
+<script type="text/ng-template" id="two.html">
+    <div id="two" data-proactive class="wiz-page">
+        <input search data-active data-text data-role="none" data-gkc/>
+        <a two-contact data-active data-contact data-subject="Wiz ARK Subject"></a>  <!- -data-menu="menu-with-custom-data"- ->
+    </div>
+</script>
+
+<!--pages-definition-end-->
+
+
+<script type="text/ng-template" id="default.html">
+    <div>
+        <h1>Sorry, something went wrong...</h1>>
+    </div>
+</script>
+
+<!-- ******************* CUSTOM PAGES END *****************
+*************************************************************** -->
+
+<!-- Email Popup Form -->
+<script type="text/ng-template" id="email.html">
+    <span ng-click="cancel()" class="icon-close close modal-dialog-close"></span>
+    <div class="modal-header">
+        <h1 class="modal-title">{{STR_SEND_EMAIL}}</h1>
+    </div>
+    <div class="modal-body">
+        <textarea id="emailtext" rows="10" class = "form-control" placeholder="{{STR_TYPE_YOUR_TEXT_HERE}}"
+                  ng-model="text" ></textarea>
+    </div>
+    <div class="modal-footer">
+        <button id="nsb-email-cancel" ng-click="cancel()"  type="button" class="btn btn-default"
+                >{{STR_CANCEL}}</button>
+        <button id="nsb-send-email" ng-click="submit()"  style="float: right" type="button" class="btn btn-primary">
+            {{STR_SEND_EMAIL}}</button>
+    </div><!-- modal footer -->
+</script>
+
+<!-- Call Now Popup Form -->
+<script type="text/ng-template" id="call.html">
+    <span ng-click="cancel()" class="icon-close close modal-dialog-close"></span>
+    <div class="modal-header">
+        <h1 class="modal-title">{{STR_CALL_ME_NOW}}</h1>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group" data-enhance="false">
+                <label id="lbl-cn-popup" style="text-align: left;"  class="col-sm-7 control-label" for="cn-number">{{STR_YOUR_PHONE_IS}}</label>
+                <div class="col-sm-5">
+                    <input type="phone"  id="cn-number" ng-model="phone" class="form-control" placeholder="{{STR_PHONE_NUMBER}}" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id="nsb-send-cn-cancel" ng-click="cancel()" class="btn btn-default" >{{STR_CANCEL}}</button>
+        <button id="nsb-send-cn" style="float: right" ng-click="submit()"
+                data-role="button" class="btn btn-primary" >{{STR_RECEIVE_A_CALL}}</button>
+    </div><!-- modal footer -->
+</script>
+
+<!-- Scheduled Callback Popup Form -->
+<script type="text/ng-template" id="callback.html">
+    <span ng-click="cancel()" class="icon-close close modal-dialog-close"></span>
+    <div class="modal-header">
+        <h1 class="modal-title">{{STR_SCHEDULE_CALLBACK}}</h1>
+    </div>
+
+    <div class="modal-body">
+        <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label id ="lbl-cb-popup" style="text-align: left;" for="cb-number" class="col-sm-7 control-label">
+                    {{STR_YOUR_PHONE_IS}}</label>
+                <div class="col-sm-5">
+                  <input type="phone" id="cb-number" ng-model="phone" class="form-control" placeholder="{{STR_PHONE_NUMBER}}" >
+                </div>
+              </div>
+
+
+                <div class="form-group">
+                    <label id="lbl-cb-when" style="text-align: left;" for="cb-delay" class="col-sm-7 control-label">
+                        {{STR_WHEN_TO_CALL}}</label>
+                    <div class="dropdown col-sm-5">
+                        <button id="cb-delay" style="text-align: center;"  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            {{btnDelayLabel}} 
+                            <span class="caret"></span>
+                        </button>
+                        <ul  style="left: 15px;" class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu2">
+                          <li role="presentation" ng-repeat="item  in delayList" >
+                            <a role="menuitem" tabindex="-1" value={{item.value}} ng-click="setCbDelay($index)" href="#">{{item.label}}</a>
+                          </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="form-group" collapse="! isManualSelected" >
+                    <div class="col-sm-12">
+                        <input data-role="none" class="form-control"
+                          ark-datepicker-popup="dd.MM.yyyy"
+                          ng-model="cbDate"
+                          placeholder=""
+                          min-date="{{currentDate}}"
+                          timepicker-mode="true"/>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id="nsb-send-cb-cancel"  ng-click="cancel()" type="button" class="btn btn-default" data-role="none">
+            {{STR_CANCEL}}</button>
+        <button id="nsb-send-cb"  ng-click="submit()" style="float: right" type="button" class="btn btn-primary"
+            data-role="none">{{STR_SUBMIT_REQUEST}}</button>
+    </div>
+</script>
+
+<!-- iWD Form -->
+<script type="text/ng-template" id="task.html">
+    <div class="modal-header">
+        <h1 class="modal-title">{{STR_SUBMIT_REQUEST}}</h1>
+    </div>
+    <div class="modal-body">
+        <div ng-repeat="item in userData" >
+            <form class="form-horizontal" role="form" ng-if="item.label.indexOf('_') != 0 && item.label.indexOf('wiz_') != 0">
+                <div class="form-group" data-enhance="false" >
+                    <label style="text-align: left;"  class="col-sm-7 control-label" for="cn-number{{$index}}">{{item.label}}</label>
+                    <div class="col-sm-5">
+                        <input type="phone"  id="cn-number{{$index}}" ng-model="userData[$index].value" class="form-control" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="nsb-send-iwd-cancel"  ng-click="cancel()" type="button" class="btn btn-default" data-role="none">
+            {{STR_CANCEL}}</button>
+        <button id="nsb-send-iwd"  ng-click="submit()" style="float: right" type="button" class="btn btn-primary"
+                data-role="none">{{STR_SUBMIT_REQUEST}}</button>
+    </div>
+</script>
+
+<!-- History Popup Form -->
+<script type="text/ng-template" id="history.html">
+    <div class="modal-header">
+        <h1 class="modal-title">{{STR_BROWSE_HISTORY}}</h1>
+    </div>
+    <div class="modal-body">
+        <div id="divMasterDetailWrapper">
+            <div id="divMasterView">
+                <accordion close-others=false>
+                    <div ng-repeat='histDate in listOfDates'>
+                        <accordion-group heading="{{histDate.date}}" is-open="listOfDates[$index].isOpen">
+                            <label ng-repeat='Interaction in histDate.listOfInteractions' data-role="none"
+                                   style="text-align: left; white-space: normal; margin:0; padding: 4px; width: 100%;"
+                                   ng-if="! Interaction.isDelimiter" class="btn btn-default" ng-click="selectIxn(Interaction.ixnHtml, Interaction.id)"
+                                   ng-model="radioModel" btn-radio="{{Interaction.id}}" >
+                                <span class="{{Interaction.icon}}" ng-class="icon" style="font-size: 24px; float:left;">&nbsp;</span>
+                                <div>{{Interaction.time}}</div>
+                                <div>{{Interaction.subject}}</div>
+                            </label >
+                        </accordion-group>
+                    </div>
+                </accordion>
+            </div>
+            <div id="divDetailView" ng-bind-html="ixnBody">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="cancel()" style="float: right" type="button" class="btn btn-default" data-role="none">
+            {{STR_CANCEL}}</button>
+    </div>
+</script>
+
+<!-- GKC Popup Page -->
+<script type="text/ng-template" id="gkc.html">
+    <div id="qkc-question-field" class="modal-header">
+        <h1 class="modal-title">{{STR_PLEASE_ENTER_YOUR_QUESTION}}</h1>
+    </div>
+    <div class="modal-body">
+        <input type="text" id="gkc-search-prompt" kc-source placeholder="{{STR_SEARCH_REQUEST}}"
+               ng-model="searchText" ng-keyup="searchContent()" style="width:100%;">
+        <div id="kc-frame">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-if="isBack" ng-click="back()" style="float: right" type="button" class="btn btn-default" data-role="none">
+            Back
+        </button>
+        <button ng-click="cancel()" style="float: right" type="button" class="btn btn-default" data-role="none">
+            {{STR_CANCEL}}
+        </button>
+    </div>
+</script>
+
+<div>
+<ark-toaster toaster-options="toasterOptions"></ark-toaster>
+</div>
+
+<!-- proactive sound -->
+<audio id="prosound" src="//demo.genesyslab.com/gdemo_mobile/web/sounds/pro-popup.mp3"></audio>
+
+<!-- for toast triggered by button click - w/a for ARK toast problem -->
+<button id="wiz-toast" ng-click="showToast($event)" data-msg="" data-type="" style="display: none;"></button>
+
+</body>
+</html>
+

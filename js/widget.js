@@ -116,3 +116,4 @@ else if (vregion == 'use1' || vregion == 'use2' || vregion == 'usw1' || vregion 
 
     document.getElementsByTagName('head')[0].appendChild(scriptB);
     console.log("Chat script loaded");
+ );

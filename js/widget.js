@@ -1,22 +1,22 @@
-const queryString = window.location.search;
+var queryString = window.location.search;
 console.log(queryString);
 
-const urlParams = new URLSearchParams(queryString);
+var urlParams = new URLSearchParams(queryString);
 
-const vorgid = urlParams.get('orgid')
+var vorgid = urlParams.get('orgid')
 console.log(vorgid);
 
-const vdepid = urlParams.get('depid')
+var vdepid = urlParams.get('depid')
 console.log(vdepid);
 
-const vregion = urlParams.get('region')
+var vregion = urlParams.get('region')
 console.log(vregion);
 
 if (vregion == 'euw1')
-{const vurl = 'ie';
+{var vurl = 'ie';
  console.log(vurl);}
 else if (vregion == 'use1' || vregion == 'use2' || vregion == 'usw1' || vregion == 'usw2')
-{const vurl = 'com';
+{var vurl = 'com';
  console.log(vurl);}
 
   (function(a,t,c,l,o,u,d){a['_genesysJourneySdk']=o;a[o]=a[o]||function(){

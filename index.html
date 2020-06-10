@@ -64,13 +64,14 @@ top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;bo
   var porgid = sessionStorage.getItem('vorgid');
   var pdepid = sessionStorage.getItem('vdepid');
   var purl = sessionStorage.getItem('vurl');
-	console.log('For chat Org ID is ' + porgid + ' and dep key is ' + pdepid + ' and url ending is ' + purl);
+  var pdataurl = 'https://api.mypurecloud.' + purl;
+	console.log('For chat Org ID is ' + porgid + ' and dep key is ' + pdepid + ' and url is ' + pdataurl);
   window._genesys = {
     "widgets": {
       "webchat": {
         "transport": {
           "type": "purecloud-v2-sockets",
-          "dataURL": "https://api.mypurecloud." + purl,
+          "dataURL": pdataurl,
           "deploymentKey": pdepid,
           "orgGuid": porgid,
           "interactionData": {

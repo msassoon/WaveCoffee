@@ -4,7 +4,32 @@
 <head>
     <title>Wave Coffee</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
+    <!-- Set URL parms -->
+    <script>
+       var queryString = window.location.search;
+       console.log(queryString);
 
+       var urlParams = new URLSearchParams(queryString);
+
+       var vorgid = urlParams.get('orgid')
+       console.log(vorgid);
+	sessionStorage.setItem(vorgid,vorgid);
+
+       var vdepid = urlParams.get('depid')
+       console.log(vdepid);
+	sessionStorage.setItem(vdepid,vdepid);
+
+       var vregion = urlParams.get('region')
+       console.log(vregion);
+
+       if (vregion == 'euw1')
+          {var vurl = 'ie';
+           console.log(vurl);
+	   sessionStorage.setItem(vurl,vurl);}
+       else if (vregion == 'use1' || vregion == 'use2' || vregion == 'usw1' || vregion == 'usw2')
+          {var vurl = 'com';
+           console.log(vurl);
+	   sessionStorage.setItem(vurl,vurl);}
 	<!-- widget localization -->
     <script src="/WaveCoffee/js/gpe.js" type="text/javascript"> </script>
 	<script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadFile('path/to/widgets.config.js').done(function(){CXBus.loadPlugin('widgets-core')});">

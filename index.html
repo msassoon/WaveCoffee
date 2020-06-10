@@ -66,14 +66,13 @@ top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;bo
   var purl = sessionStorage.getItem('vurl');
   var pdataurl = 'https://api.mypurecloud.' + purl;
 	console.log('For chat Org ID is ' + porgid + ' and dep key is ' + pdepid + ' and url is ' + pdataurl);
-  window._genesys = {
-    "widgets": {
+  var varJSON = JSON.stringify("widgets": {
       "webchat": {
         "transport": {
           "type": "purecloud-v2-sockets",
-          "dataURL": "'+ pdataurl + '",
-          "deploymentKey": "'+ pdepid + '",
-          "orgGuid": "'+ porgid + '",
+          "dataURL": '"'+ pdataurl + '"',
+          "deploymentKey": '"'+ pdepid + '"',
+          "orgGuid": '"'+ porgid + '"',
           "interactionData": {
             "routing": {
               "targetType": "QUEUE",
@@ -85,6 +84,8 @@ top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;bo
         "userData": { }
       }
     }
+			       console.log('JSON is ' + varJSON);
+  window._genesys = {varJSON
   };
 
   const customPlugin = CXBus.registerPlugin('Custom');

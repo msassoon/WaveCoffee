@@ -44,7 +44,8 @@
 	</script>
 	<script>
 			        // Some code to add a button that will start chat when pressed
-        var button = document.createElement("Button");
+        function chatbtn() {
+	var button = document.createElement("BUTTON");
         button.innerHTML = "Chat with Us";
         button.style = "top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;background-color:#ffffff!important;border:1px solid #000000;transform: rotate(-90deg);height:43.5px;font-weight:700;";
         button.className = "btn-steve";
@@ -56,6 +57,7 @@
             console.log('Chat clicked');
             customPlugin.command('WebChat.open');
         };
+	};
 	</script>
 </head>
 

@@ -21,6 +21,7 @@
 
        var vregion = urlParams.get('region')
        console.log(vregion);
+	sessionStorage.setItem('vregion',vregion);
 
        if (vregion == 'euw1')
           {var vurl = 'ie';

@@ -41,8 +41,21 @@
 	    
 	<!-- widget -->
 	<script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadFile('js/widgets.config.js').done(function(){CXBus.loadPlugin('widgets-core')});">
-	</script>
+	        // Some code to add a button that will start chat when pressed
+        var button = document.createElement("Button");
+        button.innerHTML = "Chat with Us";
+        button.style = "top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;background-color:#ffffff!important;border:1px solid #000000;transform: rotate(-90deg);height:43.5px;font-weight:700;";
+        button.className = "btn-steve";
+        // If paired with an altocloud script and you want to hide the button from view, simply comment out this next line
+        document.body.appendChild(button);
 
+        // Setup the button click action to start the chat session
+        document.getElementsByClassName("btn-steve")[0].onclick = function() {
+            console.log('Chat clicked');
+            customPlugin.command('WebChat.open');
+        };
+	</script>
+        
 </head>
 
 <body>

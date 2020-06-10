@@ -4,10 +4,15 @@
 <head>
     <title>Wave Coffee L-9 White</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
+<script type="text/javascript" src=js/getgpe.js></script>
+	
+<style>
+.button {
+top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;border:1px solid #000000;transform: rotate(-90deg);height:43.5px;font-weight:700;
+}
 
-	<!-- widget localization -->
-    <script src="//demo.genesyslab.com/gdemo_mobile/web/v2/cxw/cxw_i18n.js" type="text/javascript"></script>
-
+.chat-button {background-color: #ffffff!;}
+</style>
 </head>
 
 <body>
@@ -18,6 +23,10 @@
   <area shape="rect" coords="800,415,1314,545" alt="Add to Cart" href="cart.html">
   <area shape="rect" coords="1033,77,1197,115" alt="Contact Us" href="contact.html">
 </map>
+<script src="https://apps.mypurecloud.ie/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.ie/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
 
+<script type="text/javascript" src=js/widgets.js></script>
+
+<button class="button chat-button" onclick="customPlugin.command('WebChat.open');">Start Chat</button>
 </body>
 </html>

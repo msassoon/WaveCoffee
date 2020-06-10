@@ -71,9 +71,9 @@ top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;bo
       "webchat": {
         "transport": {
           "type": "purecloud-v2-sockets",
-          "dataURL": '"'+ pdataurl + '"',
-          "deploymentKey": '"'+ pdepid + '"',
-          "orgGuid": '"'+ porgid + '"',
+          "dataURL": pdataurl,
+          "deploymentKey": pdepid,
+          "orgGuid": porgid,
           "interactionData": {
             "routing": {
               "targetType": "QUEUE",
@@ -82,7 +82,6 @@ top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;bo
             }
           }
         },
-        "userData": { }
       }
     }
   };

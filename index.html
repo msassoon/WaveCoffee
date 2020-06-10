@@ -39,26 +39,6 @@
   ac('pageview');
     </script>
 	    
-	<!-- widget -->
-	<script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadFile('js/widgets.config.js').done(function(){CXBus.loadPlugin('widgets-core')});">
-	</script>
-	<script>
-			        // Some code to add a button that will start chat when pressed
-        function chatbtn() {
-	var button = document.createElement("BUTTON");
-        button.innerHTML = "Chat with Us";
-        button.style = "top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;background-color:#ffffff!important;border:1px solid #000000;transform: rotate(-90deg);height:43.5px;font-weight:700;";
-        button.className = "btn-steve";
-        // If paired with an altocloud script and you want to hide the button from view, simply comment out this next line
-        document.body.appendChild(button);
-
-        // Setup the button click action to start the chat session
-        document.getElementsByClassName("btn-steve")[0].onclick = function() {
-            console.log('Chat clicked');
-            customPlugin.command('WebChat.open');
-        };
-	};
-	</script>
 </head>
 
 <body>
@@ -70,6 +50,90 @@
   <area shape="rect" coords="1055,465,1314,545" alt="Shop Now" href="store.html">
   <area shape="rect" coords="1033,77,1197,115" alt="Contact Us" href="contact.html">
 </map>
-<button onclick="chatbtn()">Chat with Us</button>
+<script src="https://apps.mypurecloud.ie/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.ie/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+
+<script>
+  window._genesys = {
+    "widgets": {
+      "webchat": {
+        "transport": {
+          "type": "purecloud-v2-sockets",
+          "dataURL": "https://api.mypurecloud.ie",
+          "deploymentKey": "adb9319d-7cf5-481d-b138-51ca96f702a5",
+          "orgGuid": "3b03b67a-2349-4a03-8b28-c8ac5c26c49a",
+          "interactionData": {
+            "routing": {
+              "targetType": "QUEUE",
+              "targetAddress": "GB Agents",
+              "priority": 2
+            }
+          }
+        },
+        "userData": {
+          "addressStreet": "",
+          "addressCity": "",
+          "addressPostalCode": "",
+          "addressState": "",
+          "phoneNumber": "",
+          "customField1Label": "",
+          "customField1": "",
+          "customField2Label": "",
+          "customField2": "",
+          "customField3Label": "",
+          "customField3": ""
+        }
+      }
+    }
+  };
+
+  function getAdvancedConfig() {
+    return {
+      "form": {
+        "autoSubmit": false,
+        "firstname": "Joe",
+        "lastname": "Bloggs",
+        "email": "joe@cxmail.com",
+        "subject": "Loan enquiry"
+      },
+      "formJSON": {
+        "wrapper": "<table></table>",
+        "inputs": [
+          {
+            "id": "cx_webchat_form_firstname",
+            "name": "firstname",
+            "maxlength": "100",
+            "placeholder": "Required",
+            "label": "First Name"
+          },
+          {
+            "id": "cx_webchat_form_lastname",
+            "name": "lastname",
+            "maxlength": "100",
+            "placeholder": "Required",
+            "label": "Last Name"
+          },
+          {
+            "id": "cx_webchat_form_email",
+            "name": "email",
+            "maxlength": "100",
+            "placeholder": "Optional",
+            "label": "Email"
+          },
+          {
+            "id": "cx_webchat_form_subject",
+            "name": "subject",
+            "maxlength": "100",
+            "placeholder": "Optional",
+            "label": "Subject"
+          }
+        ]
+      }
+    };
+  }
+
+  const customPlugin = CXBus.registerPlugin('Custom');
+</script>
+
+<button type="button" id="chat-button" onclick="customPlugin.command('WebChat.open', getAdvancedConfig());">Start Chat</button>
 </body>
 </html>

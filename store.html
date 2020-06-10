@@ -5,13 +5,15 @@
     <title>Wave Coffee Store</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
     <script>
-	let vurl = sessionStorage.getItem('vurl');
-	console.log('Value of vurl is ' + vurl);
+	let purl = sessionStorage.getItem('vurl');
+	let porgid = sessionStorage.getItem('vorgid');
+	let pregion = sessionStorage.getItem('vregion');
+	console.log('Value of purl is ' + purl);
        (function(a,t,c,l,o,u,d){a['_genesysJourneySdk']=o;a[o]=a[o]||function(){
   (a[o].q=a[o].q||[]).push(arguments)},a[o].l=1*new Date();u=t.createElement(c),
   d=t.getElementsByTagName(c)[0];u.async=1;u.src=l;u.charset='utf-8';d.parentNode.insertBefore(u,d)
-  })(window, document, 'script', 'https://apps.mypurecloud.' + vurl + '/journey/sdk/js/web/v1/ac.js', 'ac');
-  ac('init', vorgid, { region: vregion });
+  })(window, document, 'script', 'https://apps.mypurecloud.' + purl + '/journey/sdk/js/web/v1/ac.js', 'ac');
+  ac('init', porgid, { region: vregion });
   ac('load', 'autotrackUrlChange');
     </script>
 	<!-- widget localization -->

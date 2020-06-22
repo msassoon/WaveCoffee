@@ -9,6 +9,6 @@ console.log('Value of purl is ' + purl + ' porgid is ' + porgid + ' pregion is '
   d=t.getElementsByTagName(c)[0];u.async=1;u.src=l;u.charset='utf-8';d.parentNode.insertBefore(u,d)
   })(window, document, 'script', 'https://apps.mypurecloud.' + purl + '/journey/sdk/js/web/v1/ac.js', 'ac');
   ac('init', porgid, { region: pregion });
-  ac('pageview');
   ac('load', 'autotrackIdle', {
   idleEvents: [ { eventName: 'idle_for_2_min', idleAfter: 120 } ] });
+  ac('pageview');

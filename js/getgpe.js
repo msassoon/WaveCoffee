@@ -11,4 +11,4 @@ console.log('Value of purl is ' + purl + ' porgid is ' + porgid + ' pregion is '
   ac('init', porgid, { region: pregion });
   ac('pageview');
   ac('load', 'autotrackIdle', {
-  idleEvents: [ { eventName: 'idle_for_20_sec', idleAfter: 20 } ] });
+  idleEvents: [ { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });

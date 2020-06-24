@@ -37,7 +37,7 @@
   })(window, document, 'script', 'https://apps.mypurecloud.' + vurl + '/journey/sdk/js/web/v1/ac.js', 'ac');
   ac('init', vorgid, { region: vregion });
   ac('pageview');
-  ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_2_min', idleAfter: 120 } ] });
+  ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
     </script>
 
 <style>

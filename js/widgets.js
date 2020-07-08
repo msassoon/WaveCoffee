@@ -11,6 +11,7 @@
           "dataURL": pdataurl,
           "deploymentKey": pdepid,
           "orgGuid": porgid,
+	  "markdown": true,
           "interactionData": {
             "routing": {
               "targetType": "QUEUE",

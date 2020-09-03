@@ -17,7 +17,11 @@
   function offeredEvent () {ga('send','event','Engagement','ChatOffered','GPEChat',{hitCallback: function() {console.log('Trying to send to GA');}});};
 </script>
 <script type="text/javascript" src=js/getgpe.js>
-	
+	  ac('on', 'webchat:offered', (event) => {
+  console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 
+	  offeredEvent;
+	  console.log('Engagement GA sent');
+    });
 </script>
 	
 <style>

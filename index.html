@@ -40,6 +40,17 @@
   ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
     </script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177251718-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-177251718-1');
+</script>
+
+	
 <style>
 .button {
 top:450px;right:-15px;position:fixed;z-index:99999;padding:10px;color:#000000;border:1px solid #000000;transform: rotate(-90deg);height:43.5px;font-weight:700;

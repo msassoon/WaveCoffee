@@ -51,10 +51,10 @@
   ac('pageview');
   ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
   ac('on', 'webchat:offered', (event) => {
-  console.log('received %s:%s event', event.actionMediaType, event.actionState, event); ga('send','event','Engagement','ChatOffered','GPEChat',{
-    hitCallback: function() {
-      console.log('Trying to send to GA');}
-    }); console.log('Engagement GA sent');});
+  console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 
+	  ga('send','event','Engagement','ChatOffered','GPEChat',{hitCallback: function() {console.log('Trying to send to GA');}}); 
+	  console.log('Engagement GA sent');
+    });
     </script>
 
 	

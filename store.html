@@ -14,12 +14,11 @@
   gtag('config', 'UA-177251718-1');
   console.log('GA tag loaded');
 	 
-  function offeredEvent () {ga('send','event','Engagement','ChatOffered','GPEChat',{hitCallback: function() {console.log('Trying to send to GA');}});};
 </script>
 <script type="text/javascript" src=js/getgpe.js>
 	  ac('on', 'webchat:offered', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 
-	  offeredEvent;
+	  ga('send','event','Engagement','ChatOffered','GPEChat',{hitCallback: function() {console.log('Trying to send to GA');}});
 	  console.log('Engagement GA sent');
     });
 </script>

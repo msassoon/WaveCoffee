@@ -4,7 +4,21 @@
 <head>
     <title>Wave Coffee Store</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
-<script type="text/javascript" src=js/getgpe.js></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177251718-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-177251718-1');
+  console.log('GA tag loaded');
+	 
+  function offeredEvent () {ga('send','event','Engagement','ChatOffered','GPEChat',{hitCallback: function() {console.log('Trying to send to GA');}});};
+</script>
+<script type="text/javascript" src=js/getgpe.js>
+	
+</script>
 	
 <style>
 .button {

@@ -16,7 +16,7 @@
   gtag('config', 'UA-177251718-1');
   console.log('GA tag loaded');
 	 
-  function offeredEvent () {ga('send','event','Engagement','ChatOffered','GPEChat',{hitCallback: function() {console.log('Trying to send to GA');}});};
+  function offeredEvent () {ga('send','event','Engagement','ChatOffered','GPEChat',0,{'nonInteration':false});};
 </script>
 	
     <script>

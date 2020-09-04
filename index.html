@@ -16,7 +16,6 @@
   gtag('config', 'UA-177251718-1');
   console.log('GA tag loaded');
 	 
-  function offeredEvent () {ga('send','event','Engagement','ChatOffered','GPEChat',0,{'nonInteration':false});};
 </script>
 	
     <script>
@@ -54,7 +53,6 @@
   ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
   ac('on', 'webchat:offered', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 
-	  offeredEvent;
 	  gtag('event','Engage',{'event_category':'GPEChat','event_label': 'ChatOffered'});
 	  console.log('Engagement GA sent');
     });

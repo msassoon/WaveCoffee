@@ -55,6 +55,7 @@
   ac('on', 'webchat:offered', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 
 	  offeredEvent;
+	  gtag('event','Engage',{'event_category':'GPEChat','event_label': 'ChatOffered'});
 	  console.log('Engagement GA sent');
     });
     </script>

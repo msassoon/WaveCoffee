@@ -53,7 +53,6 @@
   ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
   ac('on', 'webchat:all', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 
-	  gtag('event','Engage',{'event_category':'GPEChat','event_label': 'ChatOffered'});
 	  gtag('event','Engage',{'event_category':'GPEChat','event_label': event.actionMediaType +':' + event.actionState});
 	  console.log('Engagement GA sent');
     });

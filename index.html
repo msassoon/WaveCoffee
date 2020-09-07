@@ -57,7 +57,7 @@
 	  console.log('Engagement GA sent');
     });
   ac('on', 'contentoffer:all', (eventCO) => {
-  console.log('received %s:%s event', eventCO.actionMediaType, eventCO.actionState, event); 
+  console.log('received %s:%s event', eventCO.actionMediaType, eventCO.actionState, eventCO); 
 	  gtag('event','ContentOffer',{'event_category':'GPEContentOffer','event_label': eventCO.actionMediaType +':' + eventCO.actionState});
 	  console.log('Content Offer GA sent');
     });

@@ -58,7 +58,7 @@
     });
   ac('on', 'contentoffer:all', (eventCO) => {
   console.log('received %s:%s event', eventCO.actionMediaType, eventCO.actionState, event); 
-	  gtag('event','ContentOffer',{'event_category':'GPEContentOffer','event_label': event.actionMediaType +':' + event.actionState});
+	  gtag('event','ContentOffer',{'event_category':'GPEContentOffer','event_label': eventCO.actionMediaType +':' + eventCO.actionState});
 	  console.log('Content Offer GA sent');
     });
     </script>

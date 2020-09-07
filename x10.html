@@ -5,7 +5,28 @@
     <title>Wave Coffee X-10</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
 
-<script type="text/javascript" src=js/getgpe.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177251718-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-177251718-1');
+  console.log('GA tag loaded');
+	 
+</script>
+<script type="text/javascript" src=js/getgpe.js>
+	  ac('on', 'webchat:all', (event) => {
+  console.log('received %s:%s event', event.actionMediaType, event.actionState, event);
+	  gtag('event','Engage',{'event_category':'GPEChat','event_label': event.actionMediaType +':' + event.actionState});
+	  console.log('Engagement GA sent');
+    });
+	  ac('on', 'contentoffer:all', (eventCO) => {
+  console.log('received %s:%s event', eventCO.actionMediaType, eventCO.actionState, eventCO); 
+	  gtag('event','ContentOffer',{'event_category':'GPEContentOffer','event_label': eventCO.actionMediaType +':' + eventCO.actionState});
+	  console.log('Content Offer GA sent');
+    });
+</script>
 	
 <style>
 .button {

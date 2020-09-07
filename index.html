@@ -56,6 +56,11 @@
 	  gtag('event','Engage',{'event_category':'GPEChat','event_label': event.actionMediaType +':' + event.actionState});
 	  console.log('Engagement GA sent');
     });
+  ac('on', 'contentoffer:all', (eventCO) => {
+  console.log('received %s:%s event', eventCO.actionMediaType, eventCO.actionState, event); 
+	  gtag('event','ContentOffer',{'event_category':'GPEContentOffer','event_label': event.actionMediaType +':' + event.actionState});
+	  console.log('Content Offer GA sent');
+    });
     </script>
 
 	

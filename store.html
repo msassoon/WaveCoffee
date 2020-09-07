@@ -16,7 +16,7 @@
 	 
 </script>
 <script type="text/javascript" src=js/getgpe.js>
-	  ac('on', 'webchat:offered', (event) => {
+	  ac('on', 'webchat:all', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event);
 	  gtag('event','Engage',{'event_category':'GPEChat','event_label': 'ChatOffered'});
 	  gtag('event','Engage',{'event_category':'GPEChat','event_label': '%s:%s'});

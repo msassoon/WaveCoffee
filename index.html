@@ -66,7 +66,8 @@ ac('load', 'autotrackUrlChange', {
       attributes["givenName"] = localStorage.getItem("firstname");
       attributes["familyName"] = localStorage.getItem("lastname");
       attributes["encodedemail"] = localStorage.getItem("encodedemail");
-      console.log('>>>>> Genesys: Attributes to send: ' + attributes);
+      var strAtts = JSON.stringify(attributes);
+      console.log('>>>>> Genesys: Attributes to send: ' + strAtts);
     }
     ac('pageview', {}, attributes);
   });

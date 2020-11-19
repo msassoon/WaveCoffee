@@ -64,7 +64,6 @@
 		console.log('>>>>> Genesys: Encoded email is ' + encodedemail);
 	 	ac('identify', email, {email:email,givenName:firstname,familyName:lastname,encodedemailad:encodedemail});
 	}
- }
   ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
   ac('on', 'webchat:all', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 

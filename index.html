@@ -5,11 +5,9 @@
     <title>Wave Coffee</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
 	<input type="hidden" id="email" name="email" value="marc.sassoon@genesys.com">
-	localStorage.setItem("email", "marc.sassoon@genesys.com");
 	<input type="hidden" id="firstname" name="firstname" value="Marc">
-	localStorage.setItem("firstname", "Marc");
 	<input type="hidden" id="lastname" name="lastname" value="Sassoon">
-	localStorage.setItem("lastname", "Sassoon");
+
     <!-- Set URL parms -->
 	
 	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="7aad6c59-d88a-46d3-a32d-642502204759" data-blockingmode="auto" type="text/javascript"></script>
@@ -27,6 +25,9 @@
 </script>
 	
     <script>
+	localStorage.setItem("email", "marc.sassoon@genesys.com");
+	localStorage.setItem("firstname", "Marc");
+	localStorage.setItem("lastname", "Sassoon");
        var queryString = window.location.search;
        console.log(queryString);
 

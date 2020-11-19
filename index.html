@@ -4,6 +4,9 @@
 <head>
     <title>Wave Coffee</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
+	<input type="hidden" id="email" name="email" value="marc.sassoon@genesys.com">
+	<input type="hidden" id="firstname" name="firstname" value="Marc">
+	<input type="hidden" id="lasttname" name="lastname" value="Sassoon">
     <!-- Set URL parms -->
 	
 	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="7aad6c59-d88a-46d3-a32d-642502204759" data-blockingmode="auto" type="text/javascript"></script>
@@ -52,6 +55,16 @@
   })(window, document, 'script', 'https://apps.mypurecloud.' + vurl + '/journey/sdk/js/web/v1/ac.js', 'ac');
   ac('init', vorgid, { region: vregion });
   ac('pageview');
+	    	if(typeof localStorage.getItem("email") !== 'undefined' && localStorage.getItem("email") !== null){
+		var email = localStorage.getItem("email");
+		console.log('>>>>> Genesys: Email address is ' + email);
+		var firstname = localStorage.getItem("firstname");
+		var lastname = localStorage.getItem("lastname");
+		var encodedemail = encodeURIComponent(email);
+		console.log('>>>>> Genesys: Encoded email is ' + encodedemail);
+	 	ac('identify', email, {email:email,givenName:firstname,familyName:lastname,encodedemailad:encodedemail});
+	}
+ }
   ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
   ac('on', 'webchat:all', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 

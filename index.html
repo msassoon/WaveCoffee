@@ -68,9 +68,9 @@ ac('load', 'autotrackUrlChange', {
       console.log('>>>>> Genesys: Encoded email is ' + encodedemail);
       var firstname = localStorage.getItem("firstname");
       var lastname = localStorage.getItem("lastname");
-      attributes["email"] = localStorage.getItem("email");
-      attributes["givenName"] = localStorage.getItem("firstname");
-      attributes["familyName"] = localStorage.getItem("lastname");
+      attributes["email"] = email;
+      attributes["givenName"] = firstname;
+      attributes["familyName"] = lastname;
       attributes["encodedemail"] = encodedemail;
       var strAtts = JSON.stringify(attributes);
       console.log('>>>>> Genesys: Attributes to send: ' + strAtts);

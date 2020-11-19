@@ -62,7 +62,10 @@ ac('load', 'autotrackUrlChange', {
   onUrlChange: function () {
     var attributes = {};
     if(typeof localStorage.getItem("email") !== 'undefined' && localStorage.getItem("email") !== null){
+      var email = localStorage.getItem("email");
       var encodedemail = encodeURIComponent(email);
+      var firstname = localStorage.getItem("firstname");
+      var lastname = localStorage.getItem("lastname");
       attributes["email"] = localStorage.getItem("email");
       attributes["givenName"] = localStorage.getItem("firstname");
       attributes["familyName"] = localStorage.getItem("lastname");

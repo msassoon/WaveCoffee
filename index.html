@@ -58,20 +58,19 @@
   d=t.getElementsByTagName(c)[0];u.async=1;u.src=l;u.charset='utf-8';d.parentNode.insertBefore(u,d)
   })(window, document, 'script', 'https://apps.mypurecloud.' + vurl + '/journey/sdk/js/web/v1/ac.js', 'ac');
   ac('init', vorgid, { region: vregion });
-
-	 if(typeof localStorage.getItem("email") !== 'undefined' && localStorage.getItem("email") !== null){
-		var email = localStorage.getItem("email");
-		console.log('>>>>> Genesys: Email address is ' + email);
-		var firstname = localStorage.getItem("firstname");
-		var lastname = localStorage.getItem("lastname");
-		var encodedemail = encodeURIComponent(email);
-		console.log('>>>>> Genesys: Encoded email is ' + encodedemail);
-	 	ac('identify', email, {email:email,givenName:firstname,familyName:lastname,encodedemailad:encodedemail});
-	}
-	    var attributes = {};
-   attributes["encodedemail"] = localStorage.getItem("encodedemail");
-	    console.log('>>>>> Genesys: Attributes to send: ' + attributes);
-  ac('pageview', {}, attributes);
+ac('load', 'autotrackUrlChange', {
+  onUrlChange: function () {
+    var attributes = {};
+    if(typeof localStorage.getItem("email") !== 'undefined' && localStorage.getItem("email") !== null){
+      attributes["email"] = localStorage.getItem("email");
+      attributes["givenName"] = localStorage.getItem("firstname");
+      attributes["familyName"] = localStorage.getItem("lastname");
+      attributes["encodedemail"] = localStorage.getItem("encodedemail");
+      console.log('>>>>> Genesys: Attributes to send: ' + attributes);
+    }
+    ac('pageview', {}, attributes);
+  });
+})
   ac('load', 'autotrackIdle', { idleEvents: [ {},  { eventName: 'idle_for_30_sec', idleAfter: 30 } ] });
   ac('on', 'webchat:all', (event) => {
   console.log('received %s:%s event', event.actionMediaType, event.actionState, event); 

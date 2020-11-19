@@ -63,7 +63,9 @@ ac('load', 'autotrackUrlChange', {
     var attributes = {};
     if(typeof localStorage.getItem("email") !== 'undefined' && localStorage.getItem("email") !== null){
       var email = localStorage.getItem("email");
+      console.log('>>>>> Genesys: Email address is ' + email);
       var encodedemail = encodeURIComponent(email);
+      console.log('>>>>> Genesys: Encoded email is ' + encodedemail);
       var firstname = localStorage.getItem("firstname");
       var lastname = localStorage.getItem("lastname");
       attributes["email"] = localStorage.getItem("email");
